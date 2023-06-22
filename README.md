@@ -39,7 +39,7 @@ Terraform implementation of a Single Node OpenShift deployment on VMware, with s
 | vm_interface                     | Network interface for your SNO vm | string | ens192 |
 | vm_dns                           | IP Addresses for your DNS servers| list | - |
 | vm_cpus                          | Number of CPUs required for your SNO vm| number | 8 |
-| vm_memory                        | Memory required for your SNO vm in MB | number | 65536 (64Gb) |
+| vm_memory                        | Memory required for your SNO vm in MB | number | 65536 |
 | vm_disksize                      | Disk size required for your SNO vm in GB | number | 128 |
 
 

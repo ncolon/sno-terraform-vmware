@@ -8,6 +8,8 @@ Terraform implementation of a Single Node OpenShift deployment on VMware, with s
     - api.`openshift_clustername`.`openshift_basedomain` points to `vm_ipaddress`
     - *.apps.`openshift_clustername`.`openshift_basedomain` points to `vm_ipaddress`
 
+2. podman installed on workstation. Visit https://podman.io/getting-started/installation and follow install instructions if needed.
+
 
 ## Terraform variables
 

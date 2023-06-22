@@ -5,6 +5,12 @@ provider "vsphere" {
   allow_unverified_ssl = true
 }
 
+resource "tls_private_key" "installkey" {
+  count = var.openshift_sshpublickey == "" ? 1 : 0
+
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
 
 
 resource "local_file" "install_config_yaml" {
@@ -17,7 +23,7 @@ resource "local_file" "install_config_yaml" {
     openshift_servicenetwork = var.openshift_servicenetwork
     openshift_installdisk    = var.openshift_installdisk
     openshift_pullsecret     = replace(var.openshift_pullsecret, "'", "\"")
-    openshift_sshpublickey   = var.openshift_sshpublickey
+    openshift_sshpublickey   = var.openshift_sshpublickey == "" ? chomp(tls_private_key.installkey[0].public_key_openssh) : chomp(var.openshift_sshpublickey)
   })
   filename = "${var.openshift_clustername}/install-config.yaml"
 }

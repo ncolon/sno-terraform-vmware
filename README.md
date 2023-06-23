@@ -22,7 +22,7 @@ Terraform implementation of a Single Node OpenShift deployment on VMware, with s
 | vsphere_datastore                | vSphere Datastore for OpenShift nodes  | string | |
 | vsphere_cluster                  | vSphere Cluster where OpenShift will be deployed  | string | - |
 | vsphere_network                  | vSphere Network for OpenShift nodes  | string | - |
-| vsphere_folder                   | The relative path to the folder which should be used or created for VMs. | string | - |
+| vsphere_folder                   | The relative path to the folder which should be used or created for VMs. If none is specified, it will create a folder with the same name as `openshift_clustername` | string | - |
 | vsphere_preexisting_folder       | If false, creates a top-level folder with the name from vsphere_folder. | bool | false |
 | openshift_version                | OpenShift version to install | string | latest-4.12 |
 | openshift_architecture           | OpenShift architecture | string | x86_64 |

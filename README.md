@@ -8,8 +8,7 @@ Terraform implementation of a Single Node OpenShift deployment on VMware, with s
     - api.`openshift_clustername`.`openshift_basedomain` points to `vm_ipaddress`
     - *.apps.`openshift_clustername`.`openshift_basedomain` points to `vm_ipaddress`
 
-2. podman installed on workstation. Visit https://podman.io/getting-started/installation and follow install instructions if needed.
-
+2. podman installed on workstation.  Follow the [install instructions](https://podman.io/getting-started/installation) if needed.
 
 ## Terraform variables
 
@@ -43,7 +42,6 @@ Terraform implementation of a Single Node OpenShift deployment on VMware, with s
 | vm_cpus                          | Number of CPUs required for your SNO vm| number | 8 |
 | vm_memory                        | Memory required for your SNO vm in MB | number | 65536 |
 | vm_disksize                      | Disk size required for your SNO vm in GB | number | 128 |
-
 
 ## Sample terraform vars file
 

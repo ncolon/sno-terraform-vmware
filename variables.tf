@@ -134,3 +134,12 @@ variable "vm_disksize" {
   default = 128
 }
 
+variable "vm_extra_disksize" {
+  type    = number
+  default = 0
+}
+
+variable "vm_disk_thin_provisioned" {
+  type    = bool
+  default = true
+}

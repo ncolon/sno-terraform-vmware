@@ -77,13 +77,22 @@ resource "vsphere_virtual_machine" "vm" {
   num_cpus         = var.vm_cpus
   memory           = var.vm_memory
   guest_id         = "otherGuest64"
+
   network_interface {
     network_id = local.vsphere_network_id
   }
-  disk {
-    label = "disk0"
-    size  = var.vm_disksize
+
+  dynamic "disk" {
+    for_each = local.disk_sizes
+    content {
+      label            = "disk${disk.key}"
+      size             = disk.value
+      thin_provisioned = var.vm_disk_thin_provisioned
+      unit_number      = disk.key
+    }
   }
+
+
   folder = local.vsphere_folder_path
   cdrom {
     datastore_id = local.vsphere_datastore_id

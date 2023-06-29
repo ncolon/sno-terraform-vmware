@@ -42,6 +42,8 @@ Terraform implementation of a Single Node OpenShift deployment on VMware, with s
 | vm_cpus                          | Number of CPUs required for your SNO vm| number | 8 |
 | vm_memory                        | Memory required for your SNO vm in MB | number | 65536 |
 | vm_disksize                      | Disk size required for your SNO vm in GB | number | 128 |
+| vm_extra_disksize                | Disk size for additional storage on your SNO vm in GB | number | 0|
+| vm_disk_thin_provisioned         | Use thin provisioning for VMware disks | bool | true |
 
 ## Sample terraform vars file
 

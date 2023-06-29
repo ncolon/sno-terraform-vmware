@@ -36,5 +36,6 @@ locals {
   vsphere_datastore_id  = data.vsphere_datastore.datastore.id
   vsphere_network_id    = data.vsphere_network.network.id
   vsphere_folder_path   = var.vsphere_preexisting_folder ? data.vsphere_folder.folder[0].path : vsphere_folder.folder[0].path
+  disks                 = compact(tolist([var.vm_disksize, var.vm_extra_disksize == 0 ? "" : var.vm_extra_disksize]))
+  disk_sizes            = zipmap(range(length(local.disks)), local.disks)
 }
-
